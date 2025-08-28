@@ -1,0 +1,55 @@
+<div class="column-layout group">
+  <igx-list class="list">
+    @for (item of finTechAPIStock; track item) {
+      <igx-list-item (click)="selectedStock = item">
+        <span igxListThumbnail>
+          <igx-avatar [src]="item.img_url ?? ''" shape="rounded" class="avatar"></igx-avatar>
+        </span>
+        <span igxListLineTitle>{{ item.stock_symbol }}</span>
+        <span igxListLineSubTitle>{{ item.stock_name }}</span>
+      </igx-list-item>
+    }
+  </igx-list>
+</div>
+<div class="column-layout group_1">
+  <div class="column-layout group_2">
+    <div class="row-layout group_3">
+      <img [src]="selectedStock?.img_url ?? ''" class="image" />
+      <div class="column-layout group_4">
+        <h5 class="content">
+          {{ selectedStock?.stock_symbol }}
+        </h5>
+        <h6 class="content">
+          {{ selectedStock?.stock_name }}
+        </h6>
+      </div>
+    </div>
+    <div class="row-layout group_5">
+      <div class="column-layout group_6">
+        <p class="ig-typography__overline text">
+          Prev Close
+        </p>
+        <p class="content">
+          {{ selectedStock?.previous_close }}
+        </p>
+      </div>
+      <div class="column-layout group_6">
+        <p class="ig-typography__overline text">
+          PE Ratio
+        </p>
+        <p class="content">
+          {{ selectedStock?.pe_ratio }}
+        </p>
+      </div>
+      <div class="column-layout group_6">
+        <p class="ig-typography__overline text">
+          Earnings Date
+        </p>
+        <p class="content">
+          {{ selectedStock?.earnings_date }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <igx-financial-chart [dataSource]="finTechAPIStockData | transformData" class="financial-chart"></igx-financial-chart>
+</div>

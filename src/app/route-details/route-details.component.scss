@@ -1,0 +1,136 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 32px;
+  position: relative;
+  padding: 16px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.group_1 {
+  background-color: var(--ig-secondary-400);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  gap: 4px;
+  padding: 32px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.row-layout {
+  display: flex;
+}
+.group_2 {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-secondary-300);
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  margin: 0 0 16px;
+  padding: 8px;
+}
+.group_3 {
+  border-color: var(--ig-gray-300);
+  border-width: 0px 0px 1px;
+  border-style: solid;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 8px;
+  min-width: 50px;
+}
+.group_4 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 32px;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.single-select-combo {
+  width: 350px;
+  height: max-content;
+  min-width: min-content;
+  max-width: 350px;
+}
+.button {
+  --igx-button-foreground: var(--ig-secondary-500);
+  --igx-button-background: var(--ig-gray-100);
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+  align-self: start;
+}
+.button_1 {
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+}
+.icon {
+  color: var(--ig-secondary-500);
+}
+.avatar {
+  --ig-size: var(--ig-size-medium);
+  --igx-avatar-background: var(--ig-surface-500);
+  margin: 0 0 16px;
+}
+.h4 {
+  color: var(--ig-gray-900);
+  height: max-content;
+  min-width: min-content;
+}
+.content {
+  color: var(--ig-gray-100);
+  height: max-content;
+  min-width: min-content;
+}
+.avatar_1 {
+  --ig-size: var(--ig-size-small);
+  --igx-avatar-background: transparent;
+}
+.avatar_1_1::part(base) {
+  --igx-avatar-color: var(--ig-secondary-500);
+}
+.avatar_1_2::part(base) {
+  --igx-avatar-color: var(--ig-secondary-500);
+}
+.avatar_1_3::part(base) {
+  --igx-avatar-color: var(--ig-secondary-500);
+}
+.avatar_1_4::part(base) {
+  --igx-avatar-color: var(--ig-secondary-500);
+}
+.avatar_1_5::part(base) {
+  --igx-avatar-color: var(--ig-secondary-500);
+}
+.grid {
+  --ig-size: var(--ig-size-medium);
+  min-width: 600px;
+  min-height: 300px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.list {
+  width: max-content;
+  height: max-content;
+}

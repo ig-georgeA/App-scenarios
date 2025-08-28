@@ -1,0 +1,296 @@
+<div class="column-layout group">
+  <igx-grid [data]="northwindAPIIGCustomerDto" primaryKey="customerId" rowSelection="single" [allowFiltering]="true" filterMode="excelStyleFilter" (rowSelectionChanging)="selectedCustomer = $event.newSelection[0]" class="grid">
+    <igx-column field="customerId" oldDataType="string" header="customerId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="companyName" oldDataType="string" header="companyName" width="275px" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="contactName" oldDataType="string" header="contactName" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="contactTitle" oldDataType="string" header="contactTitle" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="address.street" oldDataType="string" header="address street" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="address.city" oldDataType="string" header="address city" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="address.region" oldDataType="string" header="address region" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="address.postalCode" oldDataType="string" header="address postalCode" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="address.country" oldDataType="string" header="address country" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="address.phone" oldDataType="string" header="address phone" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  </igx-grid>
+</div>
+<igx-tabs class="tabs">
+  <igx-tab-item [selected]="true" class="tab-item">
+    <igx-tab-header>
+      <igx-icon igxTabHeaderIcon>
+        edit
+      </igx-icon>
+      <span igxTabHeaderLabel>Update</span>
+    </igx-tab-header>
+    <igx-tab-content class="row-layout tab-item-content">
+      <form (ngSubmit)="ngSubmitCustomerDto()" [formGroup]="customerDtoFormModel" (reset)="resetCustomerDto($event)" class="column-layout form">
+        <h6>
+          Edit Customers
+        </h6>
+        <div class="column-layout form_fields">
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="customerId" />
+            <label igxLabel>customerId</label>
+          </igx-input-group>
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="companyName" />
+            <label igxLabel>companyName</label>
+            @if ((customerDtoFormModel.controls.companyName.touched || customerDtoFormModel.controls.companyName.dirty) && customerDtoFormModel.controls.companyName.hasError("required")) {
+              <igx-hint>This field is required</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.companyName.touched || customerDtoFormModel.controls.companyName.dirty) && customerDtoFormModel.controls.companyName.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.companyName.touched || customerDtoFormModel.controls.companyName.dirty) && customerDtoFormModel.controls.companyName.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 100 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="contactName" />
+            <label igxLabel>contactName</label>
+            @if ((customerDtoFormModel.controls.contactName.touched || customerDtoFormModel.controls.contactName.dirty) && customerDtoFormModel.controls.contactName.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.contactName.touched || customerDtoFormModel.controls.contactName.dirty) && customerDtoFormModel.controls.contactName.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="contactTitle" />
+            <label igxLabel>contactTitle</label>
+            @if ((customerDtoFormModel.controls.contactTitle.touched || customerDtoFormModel.controls.contactTitle.dirty) && customerDtoFormModel.controls.contactTitle.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.contactTitle.touched || customerDtoFormModel.controls.contactTitle.dirty) && customerDtoFormModel.controls.contactTitle.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="street" />
+              <label igxLabel>address.street</label>
+              @if ((customerDtoFormModel.controls.address.controls.street.touched || customerDtoFormModel.controls.address.controls.street.dirty) && customerDtoFormModel.controls.address.controls.street.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.street.touched || customerDtoFormModel.controls.address.controls.street.dirty) && customerDtoFormModel.controls.address.controls.street.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 100 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="city" />
+              <label igxLabel>address.city</label>
+              @if ((customerDtoFormModel.controls.address.controls.city.touched || customerDtoFormModel.controls.address.controls.city.dirty) && customerDtoFormModel.controls.address.controls.city.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.city.touched || customerDtoFormModel.controls.address.controls.city.dirty) && customerDtoFormModel.controls.address.controls.city.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="region" />
+              <label igxLabel>address.region</label>
+              @if ((customerDtoFormModel.controls.address.controls.region.touched || customerDtoFormModel.controls.address.controls.region.dirty) && customerDtoFormModel.controls.address.controls.region.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.region.touched || customerDtoFormModel.controls.address.controls.region.dirty) && customerDtoFormModel.controls.address.controls.region.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="postalCode" />
+              <label igxLabel>address.postalCode</label>
+              @if ((customerDtoFormModel.controls.address.controls.postalCode.touched || customerDtoFormModel.controls.address.controls.postalCode.dirty) && customerDtoFormModel.controls.address.controls.postalCode.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.postalCode.touched || customerDtoFormModel.controls.address.controls.postalCode.dirty) && customerDtoFormModel.controls.address.controls.postalCode.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 20 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="country" />
+              <label igxLabel>address.country</label>
+              @if ((customerDtoFormModel.controls.address.controls.country.touched || customerDtoFormModel.controls.address.controls.country.dirty) && customerDtoFormModel.controls.address.controls.country.hasError("required")) {
+                <igx-hint>This field is required</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.country.touched || customerDtoFormModel.controls.address.controls.country.dirty) && customerDtoFormModel.controls.address.controls.country.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.country.touched || customerDtoFormModel.controls.address.controls.country.dirty) && customerDtoFormModel.controls.address.controls.country.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="phone" />
+              <label igxLabel>address.phone</label>
+              @if ((customerDtoFormModel.controls.address.controls.phone.touched || customerDtoFormModel.controls.address.controls.phone.dirty) && customerDtoFormModel.controls.address.controls.phone.hasError("pattern")) {
+                <igx-hint>Entry does not match the required pattern</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+        </div>
+        <div class="row-layout actions">
+          <button igxButton="contained" type="submit" igxRipple class="button">
+            Update
+          </button>
+          <button igxButton="outlined" type="reset" igxRipple class="button">
+            Reset
+          </button>
+        </div>
+        <igx-snackbar actionText="OK" (clicked)="snackbarsuccess.toggle()" #snackbarsuccess>
+          Your changes were saved successfully!
+        </igx-snackbar>
+        <igx-snackbar actionText="OK" (clicked)="snackbarerror.toggle()" #snackbarerror>
+          Uh-oh! Something went wrong.
+        </igx-snackbar>
+      </form>
+    </igx-tab-content>
+  </igx-tab-item>
+  <igx-tab-item class="tab-item">
+    <igx-tab-header>
+      <igx-icon igxTabHeaderIcon>
+        add
+      </igx-icon>
+      <span igxTabHeaderLabel>Create</span>
+    </igx-tab-header>
+    <igx-tab-content class="row-layout tab-item-content">
+      <form (ngSubmit)="ngSubmitCustomerDto1()" [formGroup]="customerDtoFormModel1" (reset)="resetCustomerDto1($event)" class="column-layout form">
+        <h6>
+          Add Customers
+        </h6>
+        <div class="column-layout form_fields">
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="customerId" />
+            <label igxLabel>customerId</label>
+          </igx-input-group>
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="companyName" />
+            <label igxLabel>companyName</label>
+            @if ((customerDtoFormModel1.controls.companyName.touched || customerDtoFormModel1.controls.companyName.dirty) && customerDtoFormModel1.controls.companyName.hasError("required")) {
+              <igx-hint>This field is required</igx-hint>
+            }
+            @if ((customerDtoFormModel1.controls.companyName.touched || customerDtoFormModel1.controls.companyName.dirty) && customerDtoFormModel1.controls.companyName.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel1.controls.companyName.touched || customerDtoFormModel1.controls.companyName.dirty) && customerDtoFormModel1.controls.companyName.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 100 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="contactName" />
+            <label igxLabel>contactName</label>
+            @if ((customerDtoFormModel1.controls.contactName.touched || customerDtoFormModel1.controls.contactName.dirty) && customerDtoFormModel1.controls.contactName.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel1.controls.contactName.touched || customerDtoFormModel1.controls.contactName.dirty) && customerDtoFormModel1.controls.contactName.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="contactTitle" />
+            <label igxLabel>contactTitle</label>
+            @if ((customerDtoFormModel1.controls.contactTitle.touched || customerDtoFormModel1.controls.contactTitle.dirty) && customerDtoFormModel1.controls.contactTitle.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel1.controls.contactTitle.touched || customerDtoFormModel1.controls.contactTitle.dirty) && customerDtoFormModel1.controls.contactTitle.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="street" />
+              <label igxLabel>address.street</label>
+              @if ((customerDtoFormModel1.controls.address.controls.street.touched || customerDtoFormModel1.controls.address.controls.street.dirty) && customerDtoFormModel1.controls.address.controls.street.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel1.controls.address.controls.street.touched || customerDtoFormModel1.controls.address.controls.street.dirty) && customerDtoFormModel1.controls.address.controls.street.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 100 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="city" />
+              <label igxLabel>address.city</label>
+              @if ((customerDtoFormModel1.controls.address.controls.city.touched || customerDtoFormModel1.controls.address.controls.city.dirty) && customerDtoFormModel1.controls.address.controls.city.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel1.controls.address.controls.city.touched || customerDtoFormModel1.controls.address.controls.city.dirty) && customerDtoFormModel1.controls.address.controls.city.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="region" />
+              <label igxLabel>address.region</label>
+              @if ((customerDtoFormModel1.controls.address.controls.region.touched || customerDtoFormModel1.controls.address.controls.region.dirty) && customerDtoFormModel1.controls.address.controls.region.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel1.controls.address.controls.region.touched || customerDtoFormModel1.controls.address.controls.region.dirty) && customerDtoFormModel1.controls.address.controls.region.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="postalCode" />
+              <label igxLabel>address.postalCode</label>
+              @if ((customerDtoFormModel1.controls.address.controls.postalCode.touched || customerDtoFormModel1.controls.address.controls.postalCode.dirty) && customerDtoFormModel1.controls.address.controls.postalCode.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel1.controls.address.controls.postalCode.touched || customerDtoFormModel1.controls.address.controls.postalCode.dirty) && customerDtoFormModel1.controls.address.controls.postalCode.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 20 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="country" />
+              <label igxLabel>address.country</label>
+              @if ((customerDtoFormModel1.controls.address.controls.country.touched || customerDtoFormModel1.controls.address.controls.country.dirty) && customerDtoFormModel1.controls.address.controls.country.hasError("required")) {
+                <igx-hint>This field is required</igx-hint>
+              }
+              @if ((customerDtoFormModel1.controls.address.controls.country.touched || customerDtoFormModel1.controls.address.controls.country.dirty) && customerDtoFormModel1.controls.address.controls.country.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel1.controls.address.controls.country.touched || customerDtoFormModel1.controls.address.controls.country.dirty) && customerDtoFormModel1.controls.address.controls.country.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border">
+              <input type="text" igxInput formControlName="phone" />
+              <label igxLabel>address.phone</label>
+              @if ((customerDtoFormModel1.controls.address.controls.phone.touched || customerDtoFormModel1.controls.address.controls.phone.dirty) && customerDtoFormModel1.controls.address.controls.phone.hasError("pattern")) {
+                <igx-hint>Entry does not match the required pattern</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+        </div>
+        <div class="row-layout actions">
+          <button igxButton="contained" type="submit" igxRipple class="button">
+            Add
+          </button>
+          <button igxButton="outlined" type="reset" igxRipple class="button">
+            Reset
+          </button>
+        </div>
+        <igx-snackbar actionText="OK" (clicked)="snackbarsuccess1.toggle()" #snackbarsuccess1>
+          Your new submission was saved successfully!
+        </igx-snackbar>
+        <igx-snackbar actionText="OK" (clicked)="snackbarerror1.toggle()" #snackbarerror1>
+          Uh-oh! Something went wrong.
+        </igx-snackbar>
+      </form>
+    </igx-tab-content>
+  </igx-tab-item>
+</igx-tabs>

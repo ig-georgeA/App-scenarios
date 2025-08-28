@@ -1,0 +1,71 @@
+<igx-navbar class="navbar">
+  <igx-navbar-action>
+    <button igxIconButton="flat" igxRipple [igxToggleAction]="navDrawer">
+      <igx-icon>
+        menu
+      </igx-icon>
+    </button>
+  </igx-navbar-action>
+  <igx-navbar-title class="navbar-content">
+    <h6 class="h6">
+      App builder demos
+    </h6>
+  </igx-navbar-title>
+  <button igxIconButton="flat" igxRipple class="icon-button">
+    <igx-icon>
+      search
+    </igx-icon>
+  </button>
+  <button igxIconButton="flat" igxRipple>
+    <igx-icon>
+      favorite
+    </igx-icon>
+  </button>
+  <button igxIconButton="flat" igxRipple>
+    <igx-icon>
+      more_vert
+    </igx-icon>
+  </button>
+</igx-navbar>
+<div class="row-layout group">
+  <igx-nav-drawer [isOpen]="true" [pin]="true" [pinThreshold]="stringToNumber('1200')" width="320px" #navDrawer class="nav-drawer">
+    <ng-template igxDrawer>
+      <div [isHeader]="true" igxDrawerItem igxRipple>
+        <span>App scenarios</span>
+      </div>
+      <div igxDrawerItem igxRipple [routerLink]="['/forms-grid']">
+        <igx-icon class="icon">
+          send
+        </igx-icon>
+        <span>Forms + Grid</span>
+      </div>
+      <div igxDrawerItem igxRipple [routerLink]="['/dynamic-routing']">
+        <igx-icon class="icon">
+          navigation
+        </igx-icon>
+        <span>Routes w/ param</span>
+      </div>
+      <div igxDrawerItem igxRipple [routerLink]="['/selection-detail']">
+        <igx-icon class="icon">
+          check_box
+        </igx-icon>
+        <span>Selection-detail</span>
+      </div>
+      <div igxDrawerItem igxRipple [routerLink]="['/grid-crud']">
+        <igx-icon class="icon">
+          remove_circle
+        </igx-icon>
+        <span>Grid CRUD</span>
+      </div>
+      <div igxDrawerItem igxRipple [routerLink]="['/financial-chart']">
+        <igx-icon class="icon">
+          query_stats
+        </igx-icon>
+        <span>Financial chart</span>
+      </div>
+    </ng-template>
+  </igx-nav-drawer>
+  <div class="view-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

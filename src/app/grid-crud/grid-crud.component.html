@@ -1,0 +1,25 @@
+<igx-grid [data]="northwindAPIIGCustomerDto" primaryKey="customerId" rowSelection="single" [rowEditable]="true" [allowAdvancedFiltering]="true" [moving]="true" [allowFiltering]="true" filterMode="excelStyleFilter" (rowAdded)="rowAddedGridPlus($event)" (rowDeleted)="rowDeletedGridPlus($event)" (rowEditDone)="rowEditDoneGridPlus($event)" class="grid-plus">
+  <igx-grid-toolbar>
+    <igx-grid-toolbar-actions>
+      <igx-grid-toolbar-pinning></igx-grid-toolbar-pinning>
+      <igx-grid-toolbar-hiding></igx-grid-toolbar-hiding>
+      <igx-grid-toolbar-exporter></igx-grid-toolbar-exporter>
+      <igx-grid-toolbar-advanced-filtering></igx-grid-toolbar-advanced-filtering>
+    </igx-grid-toolbar-actions>
+    <igx-grid-toolbar-title>Grid with CRUD</igx-grid-toolbar-title>
+  </igx-grid-toolbar>
+  <igx-column field="customerId" oldDataType="string" header="customerId" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="companyName" oldDataType="string" header="companyName" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="contactName" oldDataType="string" header="contactName" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="contactTitle" oldDataType="string" header="contactTitle" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.street" oldDataType="string" header="address street" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.city" oldDataType="string" header="address city" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.region" oldDataType="string" header="address region" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.postalCode" oldDataType="string" header="address postalCode" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.country" oldDataType="string" header="address country" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.phone" oldDataType="string" header="address phone" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+  <igx-action-strip>
+    <igx-grid-pinning-actions></igx-grid-pinning-actions>
+    <igx-grid-editing-actions [addRow]="true"></igx-grid-editing-actions>
+  </igx-action-strip>
+</igx-grid>

@@ -1,0 +1,17 @@
+<igx-grid [data]="northwindAPIIGCustomerDto" primaryKey="customerId" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
+  <igx-column field="customerId" oldDataType="string" header="customerId" [filterable]="true" [sortable]="true" [selectable]="false">
+    <ng-template igxCell let-cell="cell">
+      <a target="_blank" href="" [routerLink]="['/route-details/ALFKI']" class="ig-typography__body-2 hyperlink">
+        {{ cell.value }}
+      </a>
+    </ng-template>
+  </igx-column>
+  <igx-column field="companyName" oldDataType="string" header="companyName" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="contactName" oldDataType="string" header="contactName" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="contactTitle" oldDataType="string" header="contactTitle" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.street" oldDataType="string" header="address street" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.city" oldDataType="string" header="address city" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.postalCode" oldDataType="string" header="address postalCode" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.country" oldDataType="string" header="address country" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="address.phone" oldDataType="string" header="address phone" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+</igx-grid>

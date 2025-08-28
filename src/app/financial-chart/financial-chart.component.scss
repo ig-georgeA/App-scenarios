@@ -1,0 +1,113 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  width: 350px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 350px;
+}
+.group_1 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 32px;
+  position: relative;
+  padding: 8px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.group_2 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.row-layout {
+  display: flex;
+}
+.group_3 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+}
+.group_4 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+}
+.group_5 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.group_6 {
+  border-color: var(--ig-gray-500);
+  border-width: 0px 0px 0px 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  padding: 0 0 0 8px;
+  width: 150px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 150px;
+}
+.list {
+  height: max-content;
+}
+.avatar {
+  --ig-size: var(--ig-size-small);
+  --igx-avatar-background: transparent;
+}
+.image {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 64px;
+  height: 64px;
+  min-width: 0;
+  min-height: 0;
+  max-width: 64px;
+  max-height: 64px;
+  flex-shrink: 0;
+}
+.content {
+  height: max-content;
+  min-width: min-content;
+}
+.text {
+  color: var(--ig-gray-500);
+  height: max-content;
+  min-width: min-content;
+}
+.financial-chart {
+  min-width: 400px;
+  min-height: 300px;
+  flex-grow: 1;
+  flex-basis: 0;
+}

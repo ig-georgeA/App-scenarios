@@ -1,0 +1,135 @@
+<div class="column-layout group">
+  <igx-simple-combo type="border" displayKey="customerId" class="single-select-combo">
+    <label igxLabel>Select customer</label>
+  </igx-simple-combo>
+  <button igxButton="outlined" type="button" igxRipple [routerLink]="['/dynamic-routing']" class="button">
+    <igx-icon class="icon">
+      arrow_back
+    </igx-icon>
+    <span>Go back</span>
+  </button>
+  <div class="column-layout group_1">
+    <igx-avatar shape="rounded" (click)="dialog.toggle()" class="avatar"></igx-avatar>
+    <div class="row-layout group_2">
+      <h4 class="h4">
+        {{ selectedCustomer1?.customerId }}
+      </h4>
+    </div>
+    <h6 class="content">
+      {{ selectedCustomer1?.companyName }}
+    </h6>
+    <div class="row-layout group_3">
+      <p class="ig-typography__caption content">
+        {{ selectedCustomer1?.address?.street }}
+      </p>
+      <p class="ig-typography__caption content">
+        {{ selectedCustomer1?.address?.city }}
+      </p>
+      <p class="ig-typography__caption content">
+        {{ selectedCustomer1?.address?.country }}
+      </p>
+    </div>
+  </div>
+  <div class="column-layout group_4">
+    <igx-grid [data]="northwindAPIIGOrderDto" primaryKey="orderId" rowSelection="single" [allowFiltering]="true" filterMode="excelStyleFilter" (rowSelectionChanging)="varOrderID = $event.newSelection[0].orderId" class="grid">
+      <igx-grid-toolbar>
+        <igx-grid-toolbar-title>Customer orders</igx-grid-toolbar-title>
+      </igx-grid-toolbar>
+      <igx-column field="orderId" oldDataType="number" header="orderId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="customerId" oldDataType="string" header="customerId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="employeeId" oldDataType="number" header="employeeId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipperId" oldDataType="number" header="shipperId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="orderDate" oldDataType="date" header="orderDate" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="requiredDate" oldDataType="date" header="requiredDate" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipVia" oldDataType="string" header="shipVia" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="freight" oldDataType="number" header="freight" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipName" oldDataType="string" header="shipName" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipAddress.street" oldDataType="string" header="shipAddress street" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipAddress.city" oldDataType="string" header="shipAddress city" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipAddress.region" oldDataType="string" header="shipAddress region" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipAddress.postalCode" oldDataType="string" header="shipAddress postalCode" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipAddress.country" oldDataType="string" header="shipAddress country" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="shipAddress.phone" oldDataType="string" header="shipAddress phone" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    </igx-grid>
+    <igx-grid [data]="northwindAPIIGProductDto" primaryKey="productId" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
+      <igx-grid-toolbar>
+        <igx-grid-toolbar-title>Order details</igx-grid-toolbar-title>
+      </igx-grid-toolbar>
+      <igx-column field="productId" oldDataType="number" header="productId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="supplierId" oldDataType="number" header="supplierId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="categoryId" oldDataType="number" header="categoryId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="quantityPerUnit" oldDataType="string" header="quantityPerUnit" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="unitPrice" oldDataType="number" header="unitPrice" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="unitsInStock" oldDataType="number" header="unitsInStock" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="unitsOnOrder" oldDataType="number" header="unitsOnOrder" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="reorderLevel" oldDataType="number" header="reorderLevel" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="discontinued" oldDataType="boolean" header="discontinued" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    </igx-grid>
+  </div>
+</div>
+<igx-dialog [closeOnOutsideSelect]="true" #dialog>
+  <igx-dialog-title>
+    <h5>
+      What will we cover today?
+    </h5>
+  </igx-dialog-title>
+  <ng-container>
+    <igx-list class="list">
+      <igx-list-item>
+        <span igxListThumbnail>
+          <igx-avatar shape="circle" class="avatar_1 avatar_1_1">
+            <igx-icon class="icon">
+              looks_one
+            </igx-icon>
+          </igx-avatar>
+        </span>
+        <span igxListLineTitle>Create variables</span>
+      </igx-list-item>
+      <igx-list-item>
+        <span igxListThumbnail>
+          <igx-avatar shape="circle" class="avatar_1 avatar_1_2">
+            <igx-icon class="icon">
+              looks_two
+            </igx-icon>
+          </igx-avatar>
+        </span>
+        <span igxListLineTitle>Update variable value</span>
+      </igx-list-item>
+      <igx-list-item>
+        <span igxListThumbnail>
+          <igx-avatar shape="circle" class="avatar_1 avatar_1_3">
+            <igx-icon class="icon">
+              looks_3
+            </igx-icon>
+          </igx-avatar>
+        </span>
+        <span igxListLineTitle>Use variable in API request</span>
+      </igx-list-item>
+      <igx-list-item>
+        <span igxListThumbnail>
+          <igx-avatar shape="circle" class="avatar_1 avatar_1_4">
+            <igx-icon class="icon">
+              looks_4
+            </igx-icon>
+          </igx-avatar>
+        </span>
+        <span igxListLineTitle>Bind component property to variable</span>
+      </igx-list-item>
+      <igx-list-item>
+        <span igxListThumbnail>
+          <igx-avatar shape="circle" class="avatar_1 avatar_1_5">
+            <igx-icon class="icon">
+              looks_5
+            </igx-icon>
+          </igx-avatar>
+        </span>
+        <span igxListLineTitle>Manage variables</span>
+      </igx-list-item>
+    </igx-list>
+  </ng-container>
+  <igx-dialog-actions>
+    <button igxButton="outlined" type="button" igxRipple (click)="dialog.toggle()" class="button_1">
+      Let's get started!
+    </button>
+  </igx-dialog-actions>
+</igx-dialog>
