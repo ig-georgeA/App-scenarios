@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IGX_GRID_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IGX_TABS_DIRECTIVES, IgxButtonDirective, IgxIconComponent, IgxRippleDirective, IgxSnackbarComponent } from '@infragistics/igniteui-angular';
+import { IGX_GRID_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IGX_TABS_DIRECTIVES, IgxButtonDirective, IgxIconComponent, IgxRippleDirective, IgxSnackbarComponent } from 'igniteui-angular';
 import { firstValueFrom, Subject, takeUntil } from 'rxjs';
 import { CustomerDto } from '../models/northwind-apiig/customer-dto';
 import { CustomerDtoForm } from '../models/northwind-apiig/customer-dto-forms';

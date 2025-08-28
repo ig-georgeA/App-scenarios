@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-import { IGX_GRID_DIRECTIVES, IGX_TABS_DIRECTIVES, IgxIconComponent, IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxRippleDirective, IgxSnackbarComponent } from '@infragistics/igniteui-angular';
+import { IGX_GRID_DIRECTIVES, IGX_TABS_DIRECTIVES, IgxIconComponent, IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxRippleDirective, IgxSnackbarComponent } from 'igniteui-angular';
 import { FormsGridComponent } from './forms-grid.component';
 
 describe('FormsGridComponent', () => {

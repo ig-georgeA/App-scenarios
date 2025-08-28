@@ -4,7 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-import { IGX_GRID_DIRECTIVES } from '@infragistics/igniteui-angular';
+import { IGX_GRID_DIRECTIVES } from 'igniteui-angular';
 import { DynamicRoutingComponent } from './dynamic-routing.component';
 
 describe('DynamicRoutingComponent', () => {

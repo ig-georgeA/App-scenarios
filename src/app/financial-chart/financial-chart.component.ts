@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IGX_LIST_DIRECTIVES, IgxAvatarComponent } from '@infragistics/igniteui-angular';
+import { IGX_LIST_DIRECTIVES, IgxAvatarComponent } from 'igniteui-angular';
 import { IgxFinancialChartModule } from 'igniteui-angular-charts';
 import { Subject, take, takeUntil } from 'rxjs';
 import { Stock } from '../models/fin-tech-api/stock';
