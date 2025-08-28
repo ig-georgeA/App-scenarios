@@ -4,7 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-import { IGX_SIMPLE_COMBO_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxRippleDirective, IgxIconComponent, IgxAvatarComponent, IGX_GRID_DIRECTIVES, IGX_DIALOG_DIRECTIVES, IGX_LIST_DIRECTIVES } from '@infragistics/igniteui-angular';
+import { IGX_SIMPLE_COMBO_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxRippleDirective, IgxIconComponent, IgxAvatarComponent, IGX_GRID_DIRECTIVES, IGX_DIALOG_DIRECTIVES, IGX_LIST_DIRECTIVES } from 'igniteui-angular';
 import { RouteDetailsComponent } from './route-details.component';
 
 describe('RouteDetailsComponent', () => {

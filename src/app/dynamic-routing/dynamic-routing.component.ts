@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IGX_GRID_DIRECTIVES } from '@infragistics/igniteui-angular';
+import { IGX_GRID_DIRECTIVES } from 'igniteui-angular';
 import { Subject, takeUntil } from 'rxjs';
 import { CustomerDto } from '../models/northwind-apiig/customer-dto';
 import { NorthwindAPIIGService } from '../services/northwind-apiig.service';

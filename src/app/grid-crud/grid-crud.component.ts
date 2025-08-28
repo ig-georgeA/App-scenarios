@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IGridEditDoneEventArgs, IGX_GRID_ACTION_STRIP_DIRECTIVES, IGX_GRID_DIRECTIVES, IRowDataEventArgs } from '@infragistics/igniteui-angular';
+import { IGridEditDoneEventArgs, IGX_GRID_ACTION_STRIP_DIRECTIVES, IGX_GRID_DIRECTIVES, IRowDataEventArgs } from 'igniteui-angular';
 import { firstValueFrom, Subject, takeUntil } from 'rxjs';
 import { CustomerDto } from '../models/northwind-apiig/customer-dto';
 import { NorthwindAPIIGService } from '../services/northwind-apiig.service';

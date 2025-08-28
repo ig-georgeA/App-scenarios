@@ -1,17 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 // Standard CSS normalize, comment out if not required or using a different module
 @use "minireset.css/minireset";
-@use "@infragistics/igniteui-angular/theming" as *;
+@use "igniteui-angular/theming" as *;
 
 @include core();
-@include typography($font-family: "Albert Sans");
+@include typography($font-family: "Albert Sans", $type-scale: $bootstrap-type-scale);
 
 $custom-palette: palette(
   $primary: #6C35CE,
   $secondary: #6C35CE,
-  $surface: #fff,
-  $warn: #faa419);
-@include theme($palette: $custom-palette, $schema: $light-material-schema);
+  $surface: #f8f9fa,
+  $error: #dc3545,
+  $success: #198754,
+  $warn: #ffc107,
+  $info: #0dcaf0);
+@include theme($palette: $custom-palette, $schema: $light-bootstrap-schema);
 
 body {
   background: var(--ig-surface-500);
